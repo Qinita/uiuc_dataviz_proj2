@@ -19,9 +19,84 @@
     </section>
 
     <section class="main-content">
+    
       <h3>
 <a id="visualization" class="anchor" href="#visualization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Visualization</h3>
 
+<!-- load D3js -->
+<script src="http://www.d3plus.org/js/d3.js"></script>
+
+<!-- load D3plus after D3js -->
+<script src="http://www.d3plus.org/js/d3plus.js"></script>
+
+<!-- create container element for visualization -->
+<div id="viz"></div>
+
+<script>
+
+  // create sample dataset
+  var sample_data = [
+    {"name": "Argentina", "size": 15},
+    {"name": "Brazil", "size": 15},
+    {"name": "United States", "size": 30},
+    {"name": "Canada", "size": 30},
+    {"name": "Mexico", "size": 30},
+    {"name": "Costa Rica", "size": 75},
+    {"name": "Guatemala", "size": 15},
+    {"name": "Panama", "size": 30},
+    {"name": "Dominican", "size": 30},
+    {"name": "Honduras", "size": 15},
+    {"name": "Niaragua", "size": 15},
+    {"name": "El Salvador", "size": 15},
+    {"name": "Venezuela", "size": 15}
+  ]
+
+  // create list of node positions
+  var positions = [
+    {"name": "Argentina", "x": 10, "y": 15},
+    {"name": "Brazil", "x": 12, "y": 14},
+    {"name": "United States", "x": 15, "y": 10},
+    {"name": "Canada", "x": 17, "y": 6},
+    {"name": "Mexico", "x": 15, "y": 4},
+    {"name": "Costa Rica", "x": 30, "y": 13},
+    {"name": "Panama", "x": 27, "y": 12},
+    {"name": "Dominican", "x": 24, "y": 11}, 
+    {"name": "Honduras", "x": 30, "y": 18},
+    {"name": "Niaragua", "x": 31, "y": 20},
+    {"name": "El Salvador", "x": 15, "y": 17},
+    {"name": "Venezuela", "x": 23, "y": 5},
+    {"name": "Guatemala", "x": 25, "y": 16}
+
+
+  ]
+
+  // create list of node connections
+  var connections = [
+    {"source": "Argentina", "target": "Brazil"},
+    {"source": "United States", "target": "Canada"},
+    {"source": "Canada", "target": "Mexico"},
+    {"source": "Mexico", "target": "United States"},
+    {"source": "Costa Rica", "target": "Guatemala"},
+    {"source": "Costa Rica", "target": "Panama"},
+    {"source": "Costa Rica", "target": "Honduras"},
+    {"source": "Costa Rica", "target": "Niaragua"},
+    {"source": "Costa Rica", "target": "El Salvador"},
+    {"source": "Panama", "target": "Dominican"},
+    {"source": "Venezuela", "target": "Dominican"}
+  ]
+
+  // instantiate d3plus
+  var visualization = d3plus.viz()
+    .container("#viz")  // container DIV to hold the visualization
+    .type("network")    // visualization type
+    .data(sample_data)  // sample dataset to attach to nodes
+    .nodes(positions)   // x and y position of nodes
+    .edges(connections) // list of node connections
+    .size("size")       // key to size the nodes
+    .id("name")         // key for which our data is unique on
+    .draw()             // finally, draw the visualization!
+
+</script>
 <p>Hi</p>
 
       <footer class="site-footer">
