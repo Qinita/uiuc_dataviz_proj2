@@ -1,30 +1,41 @@
+<!doctype html>
+<meta charset="utf-8">
+<head>
+<style>
+/*body {background-color:lightgray}*/
+h2   {color:darkblue}
+h4    {color:darkblue}
+</style>
+</head>
+<h2><center>Coursera Data Visualization Project #2</center></h2>
+<h4><center>This is a visualization for the free-trade network in America in 1998. Circle size indicates the numbers of connections. Data source is the world bank's database.</center></h4>
 <!-- load D3js -->
 <script src="http://www.d3plus.org/js/d3.js"></script>
 
 <!-- load D3plus after D3js -->
 <script src="http://www.d3plus.org/js/d3plus.js"></script>
+<A HREF="http://qinita.github.io/MSiA_SNA_Project-/"><center>Click Here for the visualization of network evolution.</center></A> 
 
 <!-- create container element for visualization -->
-<A HREF="http://qinita.github.io/MSiA_SNA_Project-/">Click Here for 7-year data visualization</A> 
 <div id="viz"></div>
 
 <script>
 
   // create sample dataset
   var sample_data = [
-    {"name": "Argentina", "size": 15},
-    {"name": "Brazil", "size": 15},
-    {"name": "United States", "size": 30},
-    {"name": "Canada", "size": 30},
-    {"name": "Mexico", "size": 30},
-    {"name": "Costa Rica", "size": 75},
-    {"name": "Guatemala", "size": 15},
-    {"name": "Panama", "size": 30},
-    {"name": "Dominican", "size": 30},
-    {"name": "Honduras", "size": 15},
-    {"name": "Niaragua", "size": 15},
-    {"name": "El Salvador", "size": 15},
-    {"name": "Venezuela", "size": 15}
+    {"name": "Argentina", "size": 1},
+    {"name": "Brazil", "size": 1},
+    {"name": "United States", "size": 2},
+    {"name": "Canada", "size": 2},
+    {"name": "Mexico", "size": 2},
+    {"name": "Costa Rica", "size": 5},
+    {"name": "Guatemala", "size": 1},
+    {"name": "Panama", "size": 2},
+    {"name": "Dominican", "size": 2},
+    {"name": "Honduras", "size": 1},
+    {"name": "Niaragua", "size": 1},
+    {"name": "El Salvador", "size": 1},
+    {"name": "Venezuela", "size": 1}
   ]
 
   // create list of node positions
@@ -38,7 +49,7 @@
     {"name": "Panama", "x": 27, "y": 12},
     {"name": "Dominican", "x": 24, "y": 11}, 
     {"name": "Honduras", "x": 30, "y": 18},
-    {"name": "Niaragua", "x": 31, "y": 20},
+    {"name": "Niaragua", "x": 31, "y": 5},
     {"name": "El Salvador", "x": 15, "y": 17},
     {"name": "Venezuela", "x": 23, "y": 5},
     {"name": "Guatemala", "x": 25, "y": 16}
